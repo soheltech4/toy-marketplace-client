@@ -1,16 +1,24 @@
 import React from 'react';
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Header = () => {
 
-    // Website logo, Website name, Home, All Toys, My Toys, Add A Toy, Blogs, and User profile
+    const { user, LogOut } = useContext(AuthContext)
+
+    const handleLogOut = () => {
+        LogOut()
+            .then()
+            .catch(error => console.log(error));
+    };
 
     const nav = <>
         <li><Link>Home</Link></li>
         <li><Link>All Toys</Link></li>
         <li><Link>My Toys</Link></li>
         <li><Link>Add A Toy</Link></li>
-        <li><Link>Blogs</Link></li>
+        <li><Link to="/blogs">Blogs</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -33,7 +41,13 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Login</a>
+                {user ?
+                    <h1 className="btn"><Link onClick={handleLogOut}>Log Out</Link></h1> :
+                    <div className='flex'>
+                        <h1>{user}</h1>
+                        <h1 className="btn"><Link to="/login">Login</Link></h1>
+                    </div>
+                }
             </div>
         </div>
     );

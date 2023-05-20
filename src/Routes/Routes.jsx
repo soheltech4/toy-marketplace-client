@@ -4,6 +4,10 @@ import {
 import Main from "../Main/Main";
 import { Children } from "react";
 import Home from "../Components/Home/Home/Home";
+import Login from "../Components/Shared/Login/Login";
+import SignUp from "../Components/Shared/SignUp/SignUp";
+import Category from "../Components/Pages/Category";
+import Blogs from "../Components/Shared/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -12,7 +16,23 @@ const router = createBrowserRouter([
     children : [
       {
         path : '/',
-        element : <Home></Home>
+        element : <Home></Home>,
+      },
+      {
+        path : '/login',
+        element : <Login></Login>
+      },
+      {
+        path : "/SignUp",
+        element : <SignUp></SignUp>
+      },
+      {
+        path : "/services/:id",
+        element : <Category></Category>
+      },
+      {
+        path : "/blogs",
+        element : <Blogs></Blogs>
       }
     ]
   },

@@ -1,6 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import SubCategory from '../../Pages/SubCategory';
+import Category from '../../Pages/Category';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
+    const [services, setServices] = useState([])
+
+    useEffect(() => {
+        fetch('http://localhost:5000/services')
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
+
     return (
         <div>
             <div className="carousel w-full">
@@ -32,6 +43,12 @@ const Home = () => {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                 </div>
+            </div>
+            <h1 className='text-center'>Sub Category</h1>
+            <div className='flex justify-center mx-auto'>
+                {
+                    services.map(service => <SubCategory key={service._id} service={service}></SubCategory>)
+                }
             </div>
         </div>
     );
