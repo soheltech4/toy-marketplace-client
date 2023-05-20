@@ -15,7 +15,7 @@ const Header = () => {
 
     const nav = <>
         <li><Link>Home</Link></li>
-        <li><Link>All Toys</Link></li>
+        <li><Link to="alltoys">All Toys</Link></li>
         {user?.email ? <>
         <li><Link to="mytoys">My Toys</Link></li> 
         <li><Link to="/toys">Add A Toy</Link></li>

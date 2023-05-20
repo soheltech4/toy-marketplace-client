@@ -15,7 +15,7 @@ const MyToys = () => {
     }, [])
 
     const handleDelete = id => {
-        const proceed = Swal.fire('Want to Delete?')
+        const proceed = Swal.fire('Deleted Successfully')
         if (proceed) {
             fetch(`http://localhost:5000/toys/${id}`, {
                 method: 'DELETE'
@@ -29,10 +29,9 @@ const MyToys = () => {
         }
     }
 
-    console.log(toys)
     return (
         <div>
-            <h1>My Toys {toys.length}</h1>
+            <h1 className='text-center text-semibold text-2xl mt-5 mb-10'>MY TOYS : {toys.length}</h1>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
                     {/* head */}
