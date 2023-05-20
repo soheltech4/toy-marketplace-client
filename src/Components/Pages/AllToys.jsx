@@ -1,5 +1,6 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AllToysRow from './AllToysRow';
+import Swal from 'sweetalert2';
 
 const AllToys = () => {
     const [toys, setToys] = useState([])
