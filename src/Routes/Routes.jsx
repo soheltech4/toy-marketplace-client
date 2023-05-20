@@ -9,6 +9,8 @@ import SignUp from "../Components/Shared/SignUp/SignUp";
 import Category from "../Components/Pages/Category";
 import Blogs from "../Components/Shared/Blogs/Blogs";
 import AdaToy from "../Components/Pages/AdaToy";
+import MyToys from "../Components/Pages/MyToys";
+import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 
 const router = createBrowserRouter([
   {
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
       {
         path : "/toys",
         element : <AdaToy></AdaToy>
+      },
+      {
+        path : "/mytoys",
+        element : <PrivateRoutes><MyToys></MyToys></PrivateRoutes>
       }
     ]
   },

@@ -16,8 +16,13 @@ const Header = () => {
     const nav = <>
         <li><Link>Home</Link></li>
         <li><Link>All Toys</Link></li>
-        <li><Link>My Toys</Link></li>
+        {user?.email ? <>
+        <li><Link to="mytoys">My Toys</Link></li> 
         <li><Link to="/toys">Add A Toy</Link></li>
+        </>
+        :
+        <li></li>
+        }
         <li><Link to="/blogs">Blogs</Link></li>
     </>
     return (
@@ -41,10 +46,9 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {user ?.email ?
+                {user ?.email?
                     <h1 className="btn"><Link onClick={handleLogOut}>Log Out</Link></h1> :
                     <div className='flex'>
-                        <h1>USER</h1>
                         <h1 className="btn"><Link to="/login">Login</Link></h1>
                     </div>
                 }
