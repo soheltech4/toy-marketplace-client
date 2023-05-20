@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 import ToysRow from './ToysRow';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const { user } = useContext(AuthContext)
@@ -12,6 +13,21 @@ const MyToys = () => {
             .then(res => res.json())
             .then(data => setToys(data))
     }, [])
+
+    const handleDelete = id => {
+        const proceed = Swal.fire('Want to Delete?')
+        if (proceed) {
+            fetch(`http://localhost:5000/toys/${id}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data)
+                    const remaining = toys.filter(toy => toy._id !== id)
+                    setToys(remaining)
+                })
+        }
+    }
 
     console.log(toys)
     return (
@@ -27,20 +43,23 @@ const MyToys = () => {
                                     <input type="checkbox" className="checkbox" />
                                 </label>
                             </th>
+                            <th>Photo</th>
                             <th>Name</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Email</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
                             <th></th>
                         </tr>
                     </thead>
                     <tbody>
-                    {/* name, email, photo, rating, quantity, price */}
+                        {/* name, email, photo, rating, quantity, price */}
 
 
                         {
-                            toys.map(toy=> <ToysRow
-                            key={toy._id}
-                            toys={toy}
+                            toys.map(toy => <ToysRow
+                                key={toy._id}
+                                toys={toy}
+                                handleDelete={handleDelete}
                             ></ToysRow>)
                         }
 
