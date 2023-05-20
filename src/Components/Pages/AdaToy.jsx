@@ -8,6 +8,7 @@ const AdaToy = () => {
         event.preventDefault()
         const form = event.target
         const name = form.name.value
+        const toyname = form.toyname.value
         const email = user?.email
         const photo = form.photo.value
         const rating = form.rating.value
@@ -17,6 +18,7 @@ const AdaToy = () => {
         const description = form.description.value
         const adtoy = {
             name,
+            toyname,
             email,
             photo,
             rating,
@@ -43,7 +45,13 @@ const AdaToy = () => {
                 <form onSubmit={handleAddToy}>
                     <div className="form-control">
                         <label className="label">
-                            <span className="label-text">Name</span>
+                            <span className="label-text">Toy Name</span>
+                        </label>
+                        <input type="text" defaultValue={user?.displayName} placeholder="name" name='toyname' className="input input-bordered" />
+                    </div>
+                    <div className="form-control">
+                        <label className="label">
+                            <span className="label-text">Seller Name</span>
                         </label>
                         <input type="text" defaultValue={user?.displayName} placeholder="name" name='name' className="input input-bordered" />
                     </div>

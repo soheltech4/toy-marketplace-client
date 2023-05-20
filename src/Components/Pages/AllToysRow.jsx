@@ -28,10 +28,10 @@ const AllToysRow = ({ toys }) => {
             {/* picture, toy name, seller name, seller email, price, rating, available quantity, and detail description */}
 
             <div className="modal">
-                <div className="modal-box max-w-xl">
+                <div className="modal-box max-w-xl max-w-3xl">
                     <div className="">
-                        <div className="flex justify-between lg:flex-row">
-                            <img src={d?.photo} className="max-w-sm rounded-lg" />
+                        <div className="flex space-y-5 lg:flex-row">
+                            <img src={d?.photo} className="max-w-sm rounded-lg shadow-xl m-5" />
                             <div>
                                 <h1 className="text-xl"><span className='font-bold'>Toy Name : </span> {d?.name}</h1>
                                 <h1 className="text-xl"><span className='font-bold'> Seller Name : </span>{d?.name}</h1>
@@ -39,9 +39,9 @@ const AllToysRow = ({ toys }) => {
                                 <h1 className="text-xl"><span className='font-bold'> Price : </span> {d?.price}</h1>
                                 <h1 className="text-xl"><span className='font-bold'> Quantity : </span>{d?.quantity}</h1>
                                 <h1 className="text-xl"><span className='font-bold'> Rating : </span> {d?.rating}</h1>
-                                <p className="text-xl"><span className='font-bold'> Description : </span> {d?.description}</p>
                             </div>
                         </div>
+                        <p className="text-xl"><span className='font-bold'> Description : </span> {d?.description}</p>
                     </div>
                     <div className="modal-action">
                         <label htmlFor="my-modal-5" className="btn">OK</label>
