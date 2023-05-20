@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import SubCategory from '../../Pages/SubCategory';
 import Category from '../../Pages/Category';
 import { Link } from 'react-router-dom';
+import Gallery from '../Gallery';
 
 const Home = () => {
     const [services, setServices] = useState([])
@@ -44,8 +45,11 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <h1 className='text-center'>Sub Category</h1>
-            <div className='flex justify-center mx-auto'>
+            <div>
+                <Gallery></Gallery>
+            </div>
+            <h1 className='bg-error mt-10 mb-10 p-3 text-3xl font-semibold rounded-lg text-center'>Sub Category</h1>
+            <div className='md:flex justify-center mx-auto'>
                 {
                     services.map(service => <SubCategory key={service._id} service={service}></SubCategory>)
                 }

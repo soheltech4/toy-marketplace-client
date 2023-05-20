@@ -8,6 +8,7 @@ import Login from "../Components/Shared/Login/Login";
 import SignUp from "../Components/Shared/SignUp/SignUp";
 import Category from "../Components/Pages/Category";
 import Blogs from "../Components/Shared/Blogs/Blogs";
+import AdaToy from "../Components/Pages/AdaToy";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,15 @@ const router = createBrowserRouter([
       {
         path : "/blogs",
         element : <Blogs></Blogs>
+      },
+      {
+        path : "/services/:id",
+        element : <Category></Category>,
+        loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+      },
+      {
+        path : "/toys",
+        element : <AdaToy></AdaToy>
       }
     ]
   },

@@ -9,7 +9,7 @@ const Header = () => {
 
     const handleLogOut = () => {
         LogOut()
-            .then()
+            .then(()=>{})
             .catch(error => console.log(error));
     };
 
@@ -17,7 +17,7 @@ const Header = () => {
         <li><Link>Home</Link></li>
         <li><Link>All Toys</Link></li>
         <li><Link>My Toys</Link></li>
-        <li><Link>Add A Toy</Link></li>
+        <li><Link to="/toys">Add A Toy</Link></li>
         <li><Link to="/blogs">Blogs</Link></li>
     </>
     return (
@@ -41,10 +41,10 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                {user ?
+                {user ?.email ?
                     <h1 className="btn"><Link onClick={handleLogOut}>Log Out</Link></h1> :
                     <div className='flex'>
-                        <h1>{user}</h1>
+                        <h1>USER</h1>
                         <h1 className="btn"><Link to="/login">Login</Link></h1>
                     </div>
                 }
