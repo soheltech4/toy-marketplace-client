@@ -3,6 +3,8 @@ import SubCategory from '../../Pages/SubCategory';
 import Category from '../../Pages/Category';
 import { Link } from 'react-router-dom';
 import Gallery from '../Gallery';
+import ClientComment from '../../ClientComment/ClientComment';
+import ContactForm from '../../ContactForm/ContactForm';
 
 const Home = () => {
     const [services, setServices] = useState([])
@@ -54,6 +56,8 @@ const Home = () => {
                     services.map(service => <SubCategory key={service._id} service={service}></SubCategory>)
                 }
             </div>
+            <ClientComment></ClientComment>
+            <ContactForm></ContactForm>
         </div>
     );
 };
