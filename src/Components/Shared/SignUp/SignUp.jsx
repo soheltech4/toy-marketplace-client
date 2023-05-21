@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import GoogleLogin from '../Login/Google/GoogleLogin';
 
 const SignUp = () => {
 
@@ -59,11 +60,14 @@ const SignUp = () => {
                                     <input type="text" placeholder="Photo Url" name='photo' className="input input-bordered" />
                                 </div>
                                 <div className="form-control mt-6">
-                                    <input className="btn btn-primary" type="submit" value="SIGN UP" />
+                                    <input className="btn" type="submit" value="SIGN UP" />
                                 </div>
                                 <div className='text-center'>
                                     <h1>Have an account? Please <span className='text-blue-600'><Link to="/login">LOGIN</Link></span></h1>
                                 </div>
+                                <div className="divider">OR</div>
+                                    <h1 className='text-center mb-5'>SIGN UP WITH</h1>
+                                    <GoogleLogin></GoogleLogin>
                             </div>
                         </div>
                     </div>

@@ -27,7 +27,7 @@ const AdaToy = () => {
             price,
             description
         }
-        fetch('http://localhost:5000/toys', {
+        fetch('https://toy-world-server-ten.vercel.app/toys', {
             method : 'POST',
             headers : {
                 'content-type' : 'application/json'

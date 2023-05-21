@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 const AllToys = () => {
     const [toys, setToys] = useState([])
 
-    const url = `http://localhost:5000/toys`
+    const url = `https://toy-world-server-ten.vercel.app/toys`
     useEffect(() => {
         fetch(url)
             .then(res => res.json())

@@ -8,7 +8,7 @@ const Home = () => {
     const [services, setServices] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://toy-world-server-ten.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
@@ -48,7 +48,7 @@ const Home = () => {
             <div>
                 <Gallery></Gallery>
             </div>
-            <h1 className='bg-error mt-10 mb-10 p-3 text-3xl font-semibold rounded-lg text-center'>Sub Category</h1>
+            <h1 className='bg-black text-white mt-10 mb-10 p-2 text-3xl font-semibold rounded-lg text-center'>Sub Category</h1>
             <div className='md:flex justify-center mx-auto'>
                 {
                     services.map(service => <SubCategory key={service._id} service={service}></SubCategory>)

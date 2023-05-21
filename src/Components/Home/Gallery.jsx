@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 const Gallery = () => {
     return (
         <div>
-            <h1 className='bg-error mt-10 mb-10 p-3 text-3xl font-semibold rounded-lg text-center'>Other Toys</h1>
+            <h1 className='bg-black text-white mt-10 mb-10 p-2 text-3xl font-semibold rounded-lg text-center'>Toys Gallery</h1>
             <div className='md:flex space-x-5 space-y-5'>
                 <Marquee>
                 <div className="card card-compact w-96 bg-base-100 shadow-xl">

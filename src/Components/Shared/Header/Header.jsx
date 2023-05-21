@@ -2,6 +2,8 @@ import React from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
+import {FaUserCircle } from 'react-icons/fa';
+
 
 const Header = () => {
 
@@ -10,8 +12,10 @@ const Header = () => {
     const handleLogOut = () => {
         LogOut()
             .then(()=>{})
-            .catch(error => console.log(error));
+            .catch(error => console.log(error))
     };
+
+    
 
     const nav = <>
         <li><Link>Home</Link></li>
@@ -47,7 +51,10 @@ const Header = () => {
             </div>
             <div className="navbar-end">
                 {user ?.email?
-                    <h1 className="btn"><Link onClick={handleLogOut}>Log Out</Link></h1> :
+                    <div className='flex gap-5'>
+                    <h1 className="btn"><FaUserCircle/></h1>
+                    <button onClick={handleLogOut} className="btn">Log Out</button>
+                    </div> :
                     <div className='flex'>
                         <h1 className="btn"><Link to="/login">Login</Link></h1>
                     </div>

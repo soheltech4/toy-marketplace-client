@@ -19,7 +19,7 @@ const SubCategory = ({ service }) => {
         <div>
             <div>
                 <div className="tabs flex justify-center">
-                    <Link onClick={() => handleId(_id)}><button className="btn btn-error">{name}</button></Link>
+                    <Link onClick={() => handleId(_id)}><button className="btn btn-black">{name}</button></Link>
                 </div>
                 <div className='space-y-5 space-x-5 p-2 justify-center items-center m-5'>
                     <div className="card w-96 bg-base-100 shadow-lg">
@@ -31,7 +31,7 @@ const SubCategory = ({ service }) => {
                             <h2 className="card-title"><span className='font-semibold'>Price: </span>{service?.toys[0]?.price}</h2>
                             <h2 className="card-title"><span className='font-semibold'>Rating: </span>{service?.toys[0]?.rating}</h2>
                             <div className="card-actions">
-                                <Link to={`/services/${_id}`}><button className="btn btn-error">View Details</button></Link>
+                                <Link to={`/services/${_id}`}><button className="btn btn-black">View Details</button></Link>
                             </div>
                         </div>
                     </div>

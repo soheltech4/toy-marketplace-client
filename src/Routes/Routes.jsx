@@ -14,11 +14,13 @@ import PrivateRoutes from "../PrivateRoutes/PrivateRoutes";
 import UpdateToy from "../Components/Pages/UpdateToy";
 import AllToys from "../Components/Pages/AllToys";
 import ViewDetails from "../Components/Pages/ViewDetails";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement : <ErrorPage></ErrorPage>,
     children : [
       {
         path : '/',
@@ -43,7 +45,7 @@ const router = createBrowserRouter([
       {
         path : "/services/:id",
         element : <Category></Category>,
-        loader : ({params}) => fetch(`http://localhost:5000/services/${params.id}`)
+        loader : ({params}) => fetch(`https://toy-world-server-ten.vercel.app/services/${params.id}`)
       },
       {
         path : "/toys",
@@ -56,7 +58,7 @@ const router = createBrowserRouter([
       {
         path : "/toys/:id",
         element : <PrivateRoutes><UpdateToy></UpdateToy></PrivateRoutes>,
-        loader : ({params}) => fetch(`http://localhost:5000/toys/${params.id}`)
+        loader : ({params}) => fetch(`https://toy-world-server-ten.vercel.app/toys/${params.id}`)
       },
       {
         path : "/alltoys",
