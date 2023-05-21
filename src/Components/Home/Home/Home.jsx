@@ -22,7 +22,7 @@ const Home = () => {
      }
 
     return (
-        <div>
+        <div >
             <div className="carousel w-full">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src="https://i.ibb.co/JHjrJHd/1.jpg" className="w-full" />
