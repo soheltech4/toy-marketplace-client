@@ -65,16 +65,13 @@ const AllToys = () => {
                     <thead>
                         <tr>
                             <th>
-                                <label>
-                                    <input type="checkbox" className="checkbox" />
-                                </label>
                             </th>
                             <th>Seller Name</th>
                             <th>Toy Name</th>
                             <th>Category</th>
                             <th>Quantity</th>
                             <th>Price</th>
-                            <th></th>
+                            <th>View Details</th>
                         </tr>
                     </thead>
                     <tbody>

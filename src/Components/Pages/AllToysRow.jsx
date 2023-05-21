@@ -26,7 +26,7 @@ const AllToysRow = ({ toys }) => {
             <td>{category}</td>
             <td>{quantity}</td>
             <td>{price}</td>
-            <label htmlFor={`my-modal-${_id}`} onClick={() => handleView(_id)} className="btn">View Details</label>
+            <label htmlFor={`my-modal-${_id}`} onClick={() => handleView(_id)} className="btn m-2">View Details</label>
             <input type="checkbox" id={`my-modal-${_id}`} className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box max-w-5xl">
