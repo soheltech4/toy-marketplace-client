@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import AllToysRow from './AllToysRow';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const AllToys = () => {
+    const {loading} = useContext(AuthContext)
     const [toys, setToys] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [filteredToys, setFilteredToys] = useState([]);
 
+    
     const url = `https://toy-world-server-ten.vercel.app/toys`;
     useEffect(() => {
         fetch(url)
@@ -33,6 +36,10 @@ const AllToys = () => {
 
         setFilteredToys(filtered);
     };
+    
+    if (loading) {
+        return <div className='flex justify-center container mx-auto mt-5'><button className="btn loading">loading</button></div>
+     }
 
     return (
         <div>

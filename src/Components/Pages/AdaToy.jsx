@@ -47,7 +47,7 @@ const AdaToy = () => {
                         <label className="label">
                             <span className="label-text">Toy Name</span>
                         </label>
-                        <input type="text" defaultValue={user?.displayName} placeholder="name" name='toyname' className="input input-bordered" />
+                        <input type="text" placeholder="name" name='toyname' className="input input-bordered" />
                     </div>
                     <div className="form-control">
                         <label className="label">

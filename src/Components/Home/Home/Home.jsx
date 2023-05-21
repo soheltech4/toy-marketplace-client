@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import SubCategory from '../../Pages/SubCategory';
 import Category from '../../Pages/Category';
 import { Link } from 'react-router-dom';
 import Gallery from '../Gallery';
 import ClientComment from '../../ClientComment/ClientComment';
 import ContactForm from '../../ContactForm/ContactForm';
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 const Home = () => {
     const [services, setServices] = useState([])
+    const {loading} = useContext(AuthContext)
 
     useEffect(() => {
         fetch('https://toy-world-server-ten.vercel.app/services')
             .then(res => res.json())
             .then(data => setServices(data))
     }, [])
+
+    if (loading) {
+        return <div className='flex justify-center container mx-auto mt-5'><button className="btn loading">loading</button></div>
+     }
 
     return (
         <div>
