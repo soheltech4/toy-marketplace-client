@@ -3,8 +3,8 @@ import { useContext } from 'react';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const AllToysRow = ({ toys }) => {
-    const {user} = useContext(AuthContext)
-    const { _id, name, email, category, photo, rating, quantity, price } = toys;
+    const { user } = useContext(AuthContext)
+    const { _id, name, email, category, photo, rating, quantity, price, toyname } = toys;
     const [d, setD] = useState({});
 
     const handleView = id => {
@@ -22,7 +22,7 @@ const AllToysRow = ({ toys }) => {
         <tr>
             <th></th>
             <td>{name}</td>
-            <td>{name}</td>
+            <td>{toyname}</td>
             <td>{category}</td>
             <td>{quantity}</td>
             <td>{price}</td>
@@ -30,41 +30,18 @@ const AllToysRow = ({ toys }) => {
             <input type="checkbox" id={`my-modal-${_id}`} className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box max-w-5xl">
-                    <div className="">
                         <div className="flex space-y-5 lg:flex-row">
                             <img src={d?.photo} className="max-w-sm rounded-lg shadow-xl m-5 h-66 w-56 " alt="Toy" />
                             <div>
-                                <h1 className="text-xl">
-                                    <span className="font-bold">Toy Name : </span>
-                                    {d.name}
-                                </h1>
-                                <h1 className="text-xl">
-                                    <span className="font-bold">Seller Name : </span>
-                                    {d.name}
-                                </h1>
-                                <h1 className="text-xl">
-                                    <span className="font-bold">Email : </span>
-                                    {d.email}
-                                </h1>
-                                <h1 className="text-xl">
-                                    <span className="font-bold">Price : </span>
-                                    {d.price}
-                                </h1>
-                                <h1 className="text-xl">
-                                    <span className="font-bold">Quantity : </span>
-                                    {d.quantity}
-                                </h1>
-                                <h1 className="text-xl">
-                                    <span className="font-bold">Rating : </span>
-                                    {d.rating}
-                                </h1>
+                                <h1 className="text-xl"><span className="font-bold">Toy Name : </span>{d.toyname}</h1>
+                                <h1 className="text-xl"><span className="font-bold">Seller Name : </span>{d.name}</h1>
+                                <h1 className="text-xl"><span className="font-bold">Email : </span>{d.email}</h1>
+                                <h1 className="text-xl"><span className="font-bold">Price : </span>{d.price}</h1>
+                                <h1 className="text-xl"><span className="font-bold">Quantity : </span>{d.quantity}</h1>
+                                <h1 className="text-xl"><span className="font-bold">Rating : </span>{d.rating}</h1>
+                                <p className="text-xl"><span className="font-bold">Description : </span>{d.description}</p>
                             </div>
                         </div>
-                        <p className="text-xl">
-                            <span className="font-bold">Description : </span>
-                            {d.description}
-                        </p>
-                    </div>
                     <div className="modal-action">
                         <label htmlFor={`my-modal-${_id}`} className="btn">
                             OK

@@ -27,7 +27,7 @@ const AllToys = () => {
         }
 
         const filtered = toys.filter(toy =>
-            toy.name.toLowerCase().includes(searchTerm.toLowerCase())
+            toy.toyname.toLowerCase().includes(searchTerm.toLowerCase())
         );
 
         if (filtered.length === 0) {

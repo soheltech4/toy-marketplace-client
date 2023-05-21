@@ -42,11 +42,11 @@ const router = createBrowserRouter([
         path : "/blogs",
         element : <Blogs></Blogs>
       },
-      {
-        path : "/services/:id",
-        element : <Category></Category>,
-        loader : ({params}) => fetch(`https://toy-world-server-ten.vercel.app/services/${params.id}`)
-      },
+      // {
+      //   path : "/services/:id",
+      //   element : <Category></Category>,
+      //   loader : ({params}) => fetch(`https://toy-world-server-ten.vercel.app/services/${params._id}`)
+      // },
       {
         path : "/toys",
         element : <PrivateRoutes><AdaToy></AdaToy></PrivateRoutes>
