@@ -14,19 +14,12 @@ const Header = () => {
             .then(()=>{})
             .catch(error => console.log(error))
     };
-
-    
-
+  
     const nav = <>
         <li><Link>Home</Link></li>
         <li><Link to="alltoys">All Toys</Link></li>
-        {user?.email ? <>
         <li><Link to="mytoys">My Toys</Link></li> 
         <li><Link to="/toys">Add A Toy</Link></li>
-        </>
-        :
-        <li></li>
-        }
         <li><Link to="/blogs">Blogs</Link></li>
     </>
     return (

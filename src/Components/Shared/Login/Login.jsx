@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Providers/AuthProvider';
 import GoogleLogin from './Google/GoogleLogin';
 
 const Login = () => {
+const [error, setError] = useState()
 
 const {signIn} = useContext(AuthContext)
 
@@ -13,12 +14,13 @@ const {signIn} = useContext(AuthContext)
         const email = form.email.value
         const password = form.password.value
         console.log(email, password)
+        setError("")
         signIn(email, password)
         .then(result =>{
             const user = result.user 
             console.log(user)
         })
-        .catch(error => console.error(error))
+        .catch(error => setError(error.message))
     }
 
 
@@ -55,6 +57,8 @@ const {signIn} = useContext(AuthContext)
                                     <h1>For a new user! Please <span className='text-blue-600'><Link to="/signUp">SIGN UP</Link></span></h1>
                                     <div className="divider">OR</div>
                                     <h1 className='text-center mt-5 mb-5'>SIGN IN WITH</h1>
+
+                                    <h1 className='text-red-600 text-center mb-2 mt-2'>{error}</h1>
                                     <GoogleLogin></GoogleLogin>
                                 </div>
                             </div>

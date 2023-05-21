@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const AllToysRow = ({ toys }) => {
+    const {user} = useContext(AuthContext)
     const { _id, name, email, category, photo, rating, quantity, price } = toys;
     const [d, setD] = useState({});
 
@@ -26,7 +29,7 @@ const AllToysRow = ({ toys }) => {
             <label htmlFor={`my-modal-${_id}`} onClick={() => handleView(_id)} className="btn">View Details</label>
             <input type="checkbox" id={`my-modal-${_id}`} className="modal-toggle" />
             <div className="modal">
-                <div className="modal-box max-w-xl max-w-5xl">
+                <div className="modal-box max-w-5xl">
                     <div className="">
                         <div className="flex space-y-5 lg:flex-row">
                             <img src={d?.photo} className="max-w-sm rounded-lg shadow-xl m-5 h-66 w-56 " alt="Toy" />
